@@ -1,0 +1,829 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-redirect-timezone="1">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Atharv Rajpoot | Electrical Engineering & Technology</title>
+        <meta
+            name="description"
+            content="Portfolio of Atharv Rajpoot, Electrical Engineering student exploring robotics, embedded systems, power systems, machine learning and AI."
+        />
+        <link rel="icon" href="pfp_github.jpg" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Atharv Rajpoot | Portfolio" />
+        <meta
+            property="og:description"
+            content="Electrical Engineering, robotics, embedded systems, machine learning and AI."
+        />
+        <meta property="og:image" content="pfp_github.jpg" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Luxurious+Script&family=Fraunces:opsz,wght@9..144,600..900&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="style.css" />
+        <style>
+            /* Portfolio content additions. Original theme, animation and cursor styles remain intact. */
+            :root {
+                --portfolio-green: #77e6a2;
+            }
+            body {
+                scroll-behavior: smooth;
+            }
+            .hero-content {
+                max-width: 900px;
+            }
+            .hero-content > p:last-child {
+                max-width: 720px;
+                line-height: 1.8;
+            }
+            .hero-title .title-top {
+                display: block;
+            }
+            .hero-title .title-bottom {
+                display: block;
+            }
+            .profile-line {
+                display: flex;
+                align-items: center;
+                gap: 22px;
+                margin: 0 auto 24px;
+                max-width: 760px;
+                text-align: left;
+            }
+            .profile-line img {
+                width: 94px;
+                height: 94px;
+                object-fit: cover;
+                border-radius: 50%;
+                border: 2px solid var(--accent);
+                box-shadow: 0 0 30px #4dff7a30;
+            }
+            .profile-line p {
+                margin: 0 !important;
+            }
+            .profile-line strong {
+                color: var(--accent);
+            }
+            .content-section {
+                padding: 82px 0;
+                border-top: 1px solid var(--border-color, rgba(128, 128, 128, 0.2));
+            }
+            .content-section .section-header {
+                margin-bottom: 28px;
+            }
+            .section-intro {
+                max-width: 760px;
+                line-height: 1.8;
+                opacity: 0.85;
+                margin-bottom: 28px;
+            }
+            .about-grid,
+            .experience-list,
+            .achievement-grid,
+            .cert-grid,
+            .contact-grid {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 18px;
+            }
+            .info-card,
+            .experience-card,
+            .credential-card,
+            .achievement-card,
+            .contact-card {
+                border: 1px solid var(--border-color, rgba(128, 128, 128, 0.25));
+                border-radius: 12px;
+                padding: 22px;
+                background: rgba(128, 128, 128, 0.035);
+            }
+            .info-card h3,
+            .experience-card h3,
+            .credential-card h3,
+            .achievement-card h3 {
+                margin: 0 0 10px;
+            }
+            .info-card p,
+            .experience-card p,
+            .credential-card p,
+            .achievement-card p {
+                line-height: 1.7;
+                margin: 0 0 10px;
+            }
+            .muted {
+                opacity: 0.68;
+                font-size: 0.9rem;
+            }
+            .pill-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+                margin-top: 14px;
+            }
+            .pill-list span,
+            .skill-chip {
+                border: 1px solid var(--border-color, rgba(128, 128, 128, 0.25));
+                border-radius: 999px;
+                padding: 6px 10px;
+                font: 12px var(--font-mono, monospace);
+            }
+            .skill-groups {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 18px;
+            }
+            .skill-group h3 {
+                font-size: 1rem;
+                margin: 0 0 12px;
+                color: var(--accent);
+            }
+            .skill-chip {
+                display: inline-block;
+                margin: 0 6px 8px 0;
+            }
+            .experience-card {
+                position: relative;
+            }
+            .experience-card ul {
+                padding-left: 20px;
+                margin: 12px 0 0;
+                line-height: 1.7;
+            }
+            .experience-card li {
+                margin-bottom: 7px;
+            }
+            .experience-card .role-meta {
+                font: 12px var(--font-mono, monospace);
+                opacity: 0.7;
+                margin-bottom: 12px;
+            }
+            .project-card.static-card {
+                display: flex;
+                cursor: default;
+                color: inherit;
+                text-decoration: none;
+            }
+            .project-card.static-card:hover {
+                transform: translateY(-3px);
+            }
+            .project-card.static-card .project-info {
+                width: 100%;
+            }
+            .project-card.static-card .project-desc {
+                line-height: 1.7;
+            }
+            .credential-card .credential-type {
+                font: 12px var(--font-mono, monospace);
+                color: var(--accent);
+                margin-bottom: 9px;
+            }
+            .achievement-card .award {
+                font: 12px var(--font-mono, monospace);
+                color: var(--accent);
+                margin-bottom: 9px;
+            }
+            .contact-card a {
+                color: var(--accent);
+                word-break: break-word;
+            }
+            .footer-brand p {
+                line-height: 1.7;
+            }
+            @media (max-width: 760px) {
+                .about-grid,
+                .experience-list,
+                .achievement-grid,
+                .cert-grid,
+                .contact-grid,
+                .skill-groups {
+                    grid-template-columns: 1fr;
+                }
+                .profile-line {
+                    align-items: flex-start;
+                }
+                .profile-line img {
+                    width: 72px;
+                    height: 72px;
+                }
+                .content-section {
+                    padding: 58px 0;
+                }
+                .hero-title {
+                    font-size: clamp(3rem, 15vw, 6rem);
+                }
+            }
+        </style>
+    </head>
+    <body class="is-loading">
+        <div id="loading-screen">
+            <div id="loading-canvas-wrap">
+                <canvas id="loading-canvas"></canvas
+                ><img id="loading-avatar" src="loading-avatar.jpg" alt="Atharv Rajpoot" />
+            </div>
+            <div class="loading-label">
+                <span>INITIALIZING_PROFILE</span><span class="loading-bar"><span id="loading-bar-fill"></span></span
+                ><span id="loading-percent">0%</span>
+            </div>
+        </div>
+        <div id="crosshair-cursor">
+            <div class="ch-line ch-v"></div>
+            <div class="ch-line ch-h"></div>
+            <div class="ch-dot"></div>
+            <div class="ch-label"></div>
+        </div>
+        <div id="arrow-cursor-layer">
+            <div class="ac-label"></div>
+            <div class="ac-arrow"></div>
+        </div>
+        <canvas id="pixel-trail-cursor"></canvas>
+        <div id="cursor-error-toast" class="cursor-error-toast" role="alert">
+            <span class="cet-icon">⚠</span><span id="cursor-error-text">CURSOR_ERROR</span>
+        </div>
+        <div id="cursor-panel" class="cursor-panel" tabindex="0" aria-label="Cursor style selector">
+            <div class="cp-collapsed">
+                <svg viewBox="0 0 24 24" class="cp-glyph" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 3 L20 12 L12 13.5 L9.5 21 Z" fill="currentColor" /></svg
+                ><span class="cp-active-dot" id="cp-active-dot"></span>
+            </div>
+            <div class="cp-expanded">
+                <div class="cp-header">
+                    <span>&gt; CURSOR.SYS</span><span class="cp-header-sub">SELECT_POINTER</span>
+                </div>
+                <div class="cursor-option-list" id="cursor-option-list"></div>
+                <div class="cp-upload-row">
+                    <label class="cp-upload-btn" for="cursor-upload-input">+ UPLOAD_CURSOR</label
+                    ><input type="file" id="cursor-upload-input" accept="image/*" hidden />
+                    <div class="cp-name-color-row">
+                        <input
+                            type="text"
+                            id="cursor-upload-name"
+                            class="cp-name-input"
+                            placeholder="name_this_cursor"
+                            maxlength="18"
+                        /><input
+                            type="color"
+                            id="cursor-upload-color"
+                            class="cp-color-input"
+                            value="#4dff7a"
+                            title="Cursor color"
+                        />
+                    </div>
+                    <button type="button" id="cursor-use-custom" class="cp-apply-btn">USE_THIS_CURSOR</button>
+                </div>
+            </div>
+        </div>
+        <div id="site-content">
+            <nav>
+                <a href="#home" class="active">/ Home</a><a href="#about">/ About</a><a href="#skills">/ Skills</a
+                ><a href="#work">/ Projects</a><a href="#experience">/ Experience</a
+                ><a href="#achievements">/ Achievements</a><a href="#contact">/ Contact</a
+                ><a href="https://github.com/atharv-rajpoot" target="_blank" rel="noopener">/ GitHub</a
+                ><button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">☀️</button>
+            </nav>
+            <div id="main">
+                <section id="home" class="hero">
+                    <div id="hero-background"></div>
+                    <div class="hero-content">
+                        <div class="profile-line">
+                            <img src="pfp_github.jpg" alt="Portfolio profile artwork" />
+                            <p>
+                                <strong>ATHARV RAJPOOT</strong><br /><span class="muted"
+                                    >Electrical Engineering Student · University of Mumbai</span
+                                >
+                            </p>
+                        </div>
+                        <div class="hero-title">
+                            <span class="title-top">Atharv</span><span class="title-bottom">Rajpoot</span>
+                        </div>
+                        <p>
+                            Student and Technology Enthusiast exploring the intersection of electrical engineering,
+                            robotics, embedded systems, machine learning, and artificial intelligence. I enjoy learning
+                            by building, experimenting, and solving practical problems.
+                        </p>
+                        <div class="pill-list" style="justify-content: center">
+                            <span>ROBOTICS</span><span>EMBEDDED SYSTEMS</span><span>POWER SYSTEMS</span
+                            ><span>AI / ML</span>
+                        </div>
+                    </div>
+                </section>
+                <div class="projects-section-wrapper">
+                    <div class="stats-bar">
+                        <span><span class="dot"></span> STATUS: BUILDING_AND_LEARNING</span
+                        ><span>FIELD: ELECTRICAL_ENGINEERING</span
+                        ><span>SYS.TIME: <span id="clock">00:00:00</span></span
+                        ><span>GRADUATION: 2029</span>
+                    </div>
+                    
+                    <section id="about" class="content-section container">
+
+                        <div class="section-header">
+                            <h2>&gt; /ABOUT_ME</h2>
+                            <span class="about-section-index">PROFILE_FILE // 001</span>
+                        </div>
+
+                        <div class="about-layout">
+
+                            <div class="about-text">
+
+                                <div class="about-kicker">
+                                    <span class="about-status-dot"></span>
+                                    A LITTLE ABOUT MYSELF
+                                </div>
+
+                                <p class="section-intro">
+                                    I am an Electrical Engineering student at the
+                                    University of Mumbai with a strong interest in
+                                    technology, innovation, and hands-on engineering.
+                                    I enjoy exploring different areas of technology,
+                                    from <span class="about-highlight">Embedded Systems</span>
+                                    and <span class="about-highlight">Robotics</span> to
+                                    <span class="about-highlight">Machine Learning</span>
+                                    and <span class="about-highlight">Artificial Intelligence</span>. I like
+                                    working on practical projects, experimenting
+                                    with hardware, and understanding how things
+                                    work by building them myself. Through projects
+                                    involving drone development, electronics,
+                                    machine learning, and locally hosted AI models,
+                                    I am continuously expanding my technical
+                                    knowledge and problem-solving abilities.
+                                </p>
+
+                                <div class="about-focus">
+                                    <span>FOCUS AREAS</span>
+
+                                    <div class="about-focus-tags">
+                                        <span>Embedded Systems</span>
+                                        <span>Robotics</span>
+                                        <span>Machine Learning</span>
+                                        <span>Electrical Engineering</span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="about-image">
+
+                                <div class="about-image-frame">
+                                    <img src="images/profile-about.png"
+                                        alt="Atharv Rajpoot">
+
+                                    <span class="about-image-corner about-image-corner-tl"></span>
+                                    <span class="about-image-corner about-image-corner-br"></span>
+                                </div>
+
+                                <div class="about-image-caption">
+                                    <span>ATHARV RAJPOOT</span>
+                                    <span>EE STUDENT // MUMBAI</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+                    <section id="skills" class="content-section container">
+                        <div class="section-header"><h2>&gt; /TECH_STACK</h2></div>
+                        <p class="section-intro">
+                            Tools and technologies I have worked with or explored through coursework, independent
+                            learning, and projects.
+                        </p>
+                        <div class="skill-groups">
+                            <div class="info-card skill-group">
+                                <h3>PROGRAMMING & DEVELOPMENT</h3>
+                                <span class="skill-chip">Python</span><span class="skill-chip">Jupyter Notebook</span
+                                ><span class="skill-chip">GitHub</span><span class="skill-chip">Linux</span
+                                ><span class="skill-chip">Ubuntu</span>
+                            </div>
+                            <div class="info-card skill-group">
+                                <h3>EMBEDDED SYSTEMS & ROBOTICS</h3>
+                                <span class="skill-chip">Arduino</span><span class="skill-chip">Arduino IDE</span
+                                ><span class="skill-chip">ESP32</span><span class="skill-chip">Raspberry Pi</span
+                                ><span class="skill-chip">ROS 2</span>
+                            </div>
+                            <div class="info-card skill-group">
+                                <h3>ENGINEERING & DESIGN</h3>
+                                <span class="skill-chip">MATLAB (Basic)</span><span class="skill-chip">Fusion 360</span
+                                ><span class="skill-chip">AutoCAD</span><span class="skill-chip">Canva</span>
+                            </div>
+                            <div class="info-card skill-group">
+                                <h3>COMMUNICATION</h3>
+                                <span class="skill-chip">Public Speaking</span
+                                ><span class="skill-chip">Presentation Skills</span>
+                            </div>
+                        </div>
+                    </section>
+                    <section id="work" class="projects-section container content-section">
+                        <div class="section-header">
+                            <h2>&gt; /PROJECTS</h2>
+                            <a href="https://github.com/atharv-rajpoot" target="_blank" rel="noopener"
+                                >VIEW_GITHUB_PROFILE -&gt;</a
+                            >
+                        </div>
+                        <div class="projects-grid">
+                            <div class="project-card static-card">
+                                <div class="project-info">
+                                    <div>
+                                        <div class="project-meta">
+                                            <span>[ 01 ]</span><span class="lang-dot lang-python"></span
+                                            ><span>Hardware</span>
+                                        </div>
+                                        <h3 class="project-title">Custom Drone Development</h3>
+                                        <p class="project-desc">
+                                            Built a drone from scratch, handling component selection and procurement,
+                                            soldering, electronic connections, and complete physical assembly.
+                                        </p>
+                                    </div>
+                                    <div class="project-tags">
+                                        <span class="tag">Electronics</span><span class="tag">Soldering</span
+                                        ><span class="tag">Hardware Integration</span>
+                                    </div>
+                                </div>
+                                <div class="project-visual">
+                                    <div class="terminal-mockup">
+                                        <div class="terminal-header">
+                                            <div class="term-dot r"></div>
+                                            <div class="term-dot y"></div>
+                                            <div class="term-dot g"></div>
+                                        </div>
+                                        <div class="term-body"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-card static-card">
+                                <div class="project-info">
+                                    <div>
+                                        <div class="project-meta">
+                                            <span>[ 02 ]</span><span class="lang-dot lang-python"></span
+                                            ><span>Electronics</span>
+                                        </div>
+                                        <h3 class="project-title">DIY Variable Bench Power Supply</h3>
+                                        <p class="project-desc">
+                                            Built a variable bench power supply from scratch, including component
+                                            procurement, soldering, circuit connections, and hardware assembly.
+                                        </p>
+                                    </div>
+                                    <div class="project-tags">
+                                        <span class="tag">Power Electronics</span
+                                        ><span class="tag">Circuit Assembly</span><span class="tag">Soldering</span>
+                                    </div>
+                                </div>
+                                <div class="project-visual">
+                                    <div class="terminal-mockup">
+                                        <div class="terminal-header">
+                                            <div class="term-dot r"></div>
+                                            <div class="term-dot y"></div>
+                                            <div class="term-dot g"></div>
+                                        </div>
+                                        <div class="term-body"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a
+                                href="https://github.com/atharv-rajpoot/stock-market-predictor"
+                                class="project-card static-card"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <div class="project-info">
+                                    <div>
+                                        <div class="project-meta">
+                                            <span>[ 03 ]</span>
+                                            <span class="lang-dot lang-python"></span>
+                                            <span>Python</span>
+                                        </div>
+
+                                        <h3 class="project-title">Stock Market Predictor</h3>
+
+                                        <p class="project-desc">
+                                            Used historical S&amp;P 500 data to predict next-day market direction with a
+                                            Random Forest classifier, rolling feature engineering, probability
+                                            thresholds, and walk-forward backtesting. Recorded precision: approximately
+                                            57.24%.
+                                        </p>
+                                    </div>
+
+                                    <div class="project-tags">
+                                        <span class="tag">Machine Learning</span>
+                                        <span class="tag">Scikit-learn</span>
+                                        <span class="tag">Pandas</span>
+                                        <span class="tag">Jupyter</span>
+                                    </div>
+                                </div>
+
+                                <div class="project-visual">
+                                    <div class="terminal-mockup">
+                                        <div class="terminal-header">
+                                            <div class="term-dot r"></div>
+                                            <div class="term-dot y"></div>
+                                            <div class="term-dot g"></div>
+                                        </div>
+                                        <div class="term-body"></div>
+                                    </div>
+                                </div>
+                            </a>
+                            
+                            <a
+                                href="https://github.com/atharv-rajpoot/Ollama-Local-LLM-Experiments"
+                                class="project-card static-card"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <div class="project-info">
+                                    <div>
+                                        <div class="project-meta">
+                                            <span>[ 04 ]</span>
+                                            <span class="lang-dot lang-python"></span>
+                                            <span>Python</span>
+                                        </div>
+
+                                        <h3 class="project-title">Ollama Local LLM Experiments</h3>
+
+                                        <p class="project-desc">
+                                            Explored locally hosted language models through Python, including text generation,
+                                            direct model interaction, LangChain integration, and text embeddings.
+                                        </p>
+                                    </div>
+
+                                    <div class="project-tags">
+                                        <span class="tag">Ollama</span>
+                                        <span class="tag">Qwen 2.5 3B</span>
+                                        <span class="tag">Llama 3.2</span>
+                                        <span class="tag">LangChain</span>
+                                    </div>
+                                </div>
+
+                                <div class="project-visual">
+                                    <div class="terminal-mockup">
+                                        <div class="terminal-header">
+                                            <div class="term-dot r"></div>
+                                            <div class="term-dot y"></div>
+                                            <div class="term-dot g"></div>
+                                        </div>
+                                        <div class="term-body"></div>
+                                    </div>
+                                </div>
+                            </a>
+
+                        </div>
+                    </section>
+                    <section id="experience" class="content-section container">
+                        <div class="section-header"><h2>&gt; /EXPERIENCE</h2></div>
+                        <div class="experience-layout">
+                            <aside class="experience-aside">
+                                <p class="experience-kicker">[ CAREER_LOG ]</p>
+                                <h3>Building experience<br />one milestone at a time.</h3>
+                                <p>
+                                    From robotics and railway systems to power distribution, space technology, and
+                                    autonomous robotics, each experience has added a new layer to my engineering
+                                    journey.
+                                </p>
+                                <div class="experience-years"><span>2025</span><i></i><span>2026</span></div>
+                                <p class="experience-hint">SCROLL TO EXPLORE <span>↓</span></p>
+                            </aside>
+                            <div class="experience-timeline" aria-label="Professional experience timeline">
+                                <div class="timeline-rail"><div class="timeline-progress"></div></div>
+                                <article class="experience-card timeline-card" data-year="2025">
+                                    <span class="timeline-node" aria-hidden="true"></span>
+                                    <div class="timeline-date">FEB 2025 — APR 2025 <span>01 / 05</span></div>
+                                    <h3>Hardware and Mathematics Team Member</h3>
+                                    <div class="role-meta">The Atharva Robotics Club (The ARC) · Completed</div>
+                                    <ul>
+                                        <li>Contributed to technical learning and robotics-oriented activities.</li>
+                                        <li>
+                                            Worked with Arduino Uno and ESP32 concepts, embedded programming, hardware
+                                            interfacing, and technical datasheets.
+                                        </li>
+                                        <li>
+                                            Studied SMPS, potentiometers, buck and boost converters, servo motors, and
+                                            BLDC motors.
+                                        </li>
+                                        <li>Gained exposure to Fusion 360, Ubuntu, and basic ROS 2 concepts.</li>
+                                    </ul>
+                                    <div class="pill-list">
+                                        <span>Arduino</span><span>ESP32</span><span>Fusion 360</span><span>ROS 2</span>
+                                    </div>
+                                </article>
+                                <article class="experience-card timeline-card" data-year="2025">
+                                    <span class="timeline-node" aria-hidden="true"></span>
+                                    <div class="timeline-date">JUNE 2025 <span>02 / 05</span></div>
+                                    <h3>Summer Intern</h3>
+                                    <div class="role-meta">
+                                        Western Railway · 15 days · Virar, Maharashtra · Completed
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            Completed technical training at an EMU Carshed, gaining exposure to railway
+                                            operations, diagnostics, and maintenance.
+                                        </li>
+                                        <li>
+                                            Studied EMU formations, auxiliary warning systems, battery systems,
+                                            pneumatic suspension, wheel wear, and ultrasonic flaw detection.
+                                        </li>
+                                        <li>Explored regenerative braking and grid energy recovery.</li>
+                                        <li>
+                                            Rotated through Wheel &amp; Coupler, Investigation, Lighting &amp; Fans,
+                                            Nominal Repairs, IA/IC, and AWS Maintenance.
+                                        </li>
+                                    </ul>
+                                    <div class="pill-list">
+                                        <span>Railway Systems</span><span>EMU</span><span>Maintenance</span
+                                        ><span>Regenerative Braking</span>
+                                    </div>
+                                </article>
+                                <article class="experience-card timeline-card" data-year="2026">
+                                    <span class="timeline-node" aria-hidden="true"></span>
+                                    <div class="timeline-date">JUNE 2026 <span>03 / 05</span></div>
+                                    <h3>In-plant Trainee Intern</h3>
+                                    <div class="role-meta">
+                                        Brihanmumbai Electric Supply and Transport (BEST) · 21 days · Completed
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            Gained practical exposure to electrical power distribution, protection,
+                                            metering, operations, maintenance, automation, and material testing.
+                                        </li>
+                                        <li>
+                                            Studied 110 kV, 33 kV, 22 kV, and 11 kV distribution networks, receiving
+                                            stations, substations, and underground cable infrastructure.
+                                        </li>
+                                        <li>
+                                            Explored switchgear, circuit breakers, power transformers, protection
+                                            systems, metering, SCADA, fault localization, and maintenance operations.
+                                        </li>
+                                        <li>
+                                            Rotated through Training &amp; Industrial Engineering, Meters, Distribution
+                                            Workshop, Operations &amp; Maintenance, and Material Testing &amp;
+                                            Standards.
+                                        </li>
+                                    </ul>
+                                    <div class="pill-list">
+                                        <span>Power Distribution</span><span>Protection</span><span>Substations</span
+                                        ><span>SCADA</span>
+                                    </div>
+                                </article>
+                                <article class="experience-card timeline-card" data-year="2026">
+                                    <span class="timeline-node" aria-hidden="true"></span>
+                                    <div class="timeline-date">JUNE 2026 — JULY 2026 <span>04 / 05</span></div>
+                                    <h3>Technical Intern</h3>
+                                    <div class="role-meta">India Space Lab · Completed</div>
+                                    <ul>
+                                        <li>
+                                            Explored remote sensing, satellite-based Earth observation, UAV/drone
+                                            systems, and CanSat/CubeSat technology.
+                                        </li>
+                                        <li>Studied microwave remote sensing, SAR, and InSAR concepts.</li>
+                                        <li>
+                                            Explored Sentinel-1 SAR processing workflows using ISCE2, MintPy, Python,
+                                            Jupyter Notebook, Anaconda/Conda, and Linux.
+                                        </li>
+                                        <li>
+                                            Studied UAV flight dynamics and GIS-based network analysis and disaster
+                                            management.
+                                        </li>
+                                    </ul>
+                                    <div class="pill-list">
+                                        <span>Remote Sensing</span><span>SAR / InSAR</span><span>Python</span
+                                        ><span>GIS</span>
+                                    </div>
+                                </article>
+                                <article class="experience-card timeline-card" data-year="2026">
+                                    <span class="timeline-node" aria-hidden="true"></span>
+                                    <div class="timeline-date">JUNE 2026 — AUGUST 2026 <span>05 / 05</span></div>
+                                    <h3>Team Lead · eLSI Sprint 2026</h3>
+                                    <div class="role-meta">e-Yantra, IIT Bombay · Completed</div>
+                                    <p class="muted">Team ID: eLSI#6 · Final Rank: 127</p>
+                                    <ul>
+                                        <li>
+                                            Developed Python-based PID control in CoppeliaSim for stable black-line
+                                            following and autonomous robot navigation.
+                                        </li>
+                                        <li>
+                                            Implemented Q-learning and reinforcement learning algorithms for navigation
+                                            and decision-making.
+                                        </li>
+                                        <li>
+                                            Programmed colour detection, target-path selection, and autonomous
+                                            pick-and-drop operations.
+                                        </li>
+                                        <li>
+                                            Integrated line following, colour detection, path selection, and gripper
+                                            control, then tested and debugged the logic in simulation.
+                                        </li>
+                                    </ul>
+                                    <div class="pill-list">
+                                        <span>Python</span><span>PID</span><span>CoppeliaSim</span
+                                        ><span>Reinforcement Learning</span>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </section>
+                    <section id="achievements" class="content-section container">
+                        <div class="section-header"><h2>&gt; /CERTIFICATIONS_&_ACHIEVEMENTS</h2></div>
+                        <h3 style="color: var(--accent); margin: 0 0 16px">CERTIFICATIONS</h3>
+                        <div class="cert-grid">
+                            <article class="credential-card">
+                                <div class="credential-type">NPTEL · OCTOBER 2026</div>
+                                <h3>Power System Protection and Switchgear</h3>
+                                <p>NPTEL Elite Certificate.</p>
+                                <p class="muted">Credential ID: NPTEL26EE109S162901573</p>
+                            </article>
+                            <article class="credential-card">
+                                <div class="credential-type">IIT BOMBAY · OCTOBER 2025</div>
+                                <h3>Getting Started with ROS2</h3>
+                                <p>Certificate of Merit.</p>
+                                <p class="muted">Credential ID: 52541358ea8178c6e0ce644fdcd2d9c2b7e9566c</p>
+                            </article>
+                        </div>
+                        <h3 style="color: var(--accent); margin: 34px 0 16px">HONORS &amp; AWARDS</h3>
+                        <div class="achievement-grid">
+                            <article class="achievement-card">
+                                <div class="award">RESEARCH PAPER PUBLICATION · MARCH 2026</div>
+                                <h3>Plasma-Based Electronics: The Next Frontier Beyond Solid-State Devices</h3>
+                                <p>
+                                    Published in the Indian Journal of Technical Education (IJTE), following
+                                    presentation at ICSTEMSD 2026. The work explores plasma as a promising alternative
+                                    to conventional solid-state electronics, including theoretical modelling, device
+                                    architectures, and applications in aerospace, fusion energy, and high-power systems.
+                                </p>
+                                <p class="muted">Associated with University of Mumbai.</p>
+                            </article>
+                            <article class="achievement-card">
+                                <div class="award">1ST PLACE · FEBRUARY 2025</div>
+                                <h3>ICSTEMSD 2025</h3>
+                                <p>
+                                    Secured first place for presenting the review paper
+                                    <strong
+                                        >“High-Performance Piezoelectric Nanogenerators for Energy Harvesting and
+                                        Storage Applications”.</strong
+                                    >
+                                </p>
+                                <p class="muted">
+                                    International Conference on Science, Technology, Engineering, Management, and Social
+                                    Development · University of Mumbai.
+                                </p>
+                            </article>
+                        </div>
+                    </section>
+                    <section id="contact" class="content-section container">
+                        <div class="section-header"><h2>&gt; /CONTACT</h2></div>
+                        <p class="section-intro">
+                            Have a project idea, technical opportunity, or collaboration in mind? Feel free to connect.
+                        </p>
+                        <div class="contact-grid">
+                            <div class="contact-card">
+                                <div class="muted">EMAIL </div>
+                                <a href="mailto:atharvrajpoot@gmail.com">atharvrajpoot@gmail.com</a>
+                            </div>
+                            <div class="contact-card">
+                                <div class="muted">GITHUB</div>
+                                <a href="https://github.com/atharv-rajpoot" target="_blank" rel="noopener"
+                                    >github.com/atharv-rajpoot ↗</a
+                                >
+                            </div>
+                            <div class="contact-card">
+                                <div class="muted">LINKEDIN</div>
+                                <a href="https://www.linkedin.com/in/atharv-rajpoot/" target="_blank" rel="noopener"
+                                    >linkedin.com/in/atharv-rajpoot ↗</a
+                                >
+                            </div>
+                        </div>
+                    </section>
+                    <footer class="container">
+                        <div class="footer-main">
+                            <div class="footer-grid">
+                                <div class="footer-brand">
+                                    <h3 data-scramble>Atharv Rajpoot</h3>
+                                    <p>&gt; /EOF. Electrical Engineering · Technology · Continuous Learning.</p>
+                                </div>
+                                <div class="footer-links">
+                                    <a
+                                        href="https://github.com/atharv-rajpoot"
+                                        target="_blank"
+                                        rel="noopener"
+                                        data-scramble
+                                        >GITHUB ↗</a
+                                    ><a
+                                        href="https://www.linkedin.com/in/atharv-rajpoot/"
+                                        target="_blank"
+                                        rel="noopener"
+                                        data-scramble
+                                        >LINKEDIN ↗</a
+                                    ><a href="mailto:atharvrajpoot@gmail.com" data-scramble>EMAIL ↗</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer-bottom">
+                            <p data-scramble>© 2026 ATHARV RAJPOOT. ALL RIGHTS RESERVED.</p>
+                            <span class="footer-sep" aria-hidden="true">//</span>
+                            <p data-scramble>BUILT_TO_KEEP_LEARNING</p>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
