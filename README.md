@@ -108,9 +108,5 @@ I enjoy learning through practical implementation, experimenting with hardware, 
   <i>Building, experimenting, and learning one project at a time.</i>
 </p>
 
-
-
-# Atharv-Portfolio
-
 Portfolio deployment managed through Vercel.
 
